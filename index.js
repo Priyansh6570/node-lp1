@@ -1,8 +1,8 @@
 const http = require('http');
 const fs = require('fs');
 
-const PORT = 2000; //process.env.PORT
-const hostName = "localhost";
+const PORT = process.env.PORT;
+// const hostName = "localhost";
 const Home = fs.readFileSync('./public/index.html');
 
 const server = http.createServer((req, res)=>{
@@ -22,6 +22,6 @@ const server = http.createServer((req, res)=>{
         return res.end(fs.readFileSync('./public/notFound.html'));
     }
 })
-server.listen(PORT, hostName, ()=>{
-    console.log(`Server is Operating in https://${hostName}:${PORT}`);
+server.listen(PORT, ()=>{
+    console.log(`Server is Operating in https://${PORT}`);
 })
